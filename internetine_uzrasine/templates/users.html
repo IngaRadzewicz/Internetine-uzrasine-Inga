@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <title>Vartotojai</title>
+    <style>
+        body {
+            font-family: Courier, monospace;
+            background: #e6f7ff;
+            color: #333;
+            padding: 20px;
+        }
+
+        a, button {
+            color: #800080; /* Violet */
+            background-color: #FF69B4; /* Pink background for buttons */
+            padding: 10px 20px;
+            border: none;
+            text-decoration: none; /* Underline links */
+            font-size: smaller; /* Smaller font size for links */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            padding: 10px;
+            border-left: 5px solid #FF69B4;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+
+        form {
+            background: #fff;
+            padding: 15px;
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center; /* Center-align titles */
+        }
+    </style>
+</head>
+<body>
+    <h1>Vartotojai</h1>
+    <ul>
+        {% for user in users %}
+        <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Pridėti naują vartotoją</h2>
+    <form action="{{ url_for('manage_users') }}" method="post">
+        <input type="text" name="name" placeholder="Įveskite vartotojo vardą" required>
+        <button type="submit">Pridėti vartotoją</button>
+    </form>
+    <div style="text-align: center;">
+        <a href="{{ url_for('index') }}">Grįžti į pradžią</a>
+    </div>
+</body>
+</html>
+

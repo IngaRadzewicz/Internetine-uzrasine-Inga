@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Užrašų programėlė</title>
+    <style>
+        body {
+            font-family: Courier, monospace;
+            background: #e6f7ff;
+            color: #333;
+            padding: 20px;
+        }
+
+        a, button {
+            color: #800080; /* Violet */
+            background-color: #FF69B4; /* Pink background for buttons */
+            padding: 10px 20px;
+            border: none;
+            text-decoration: none; /* Underline links */
+            font-size: smaller; /* Smaller font size for links */
+        }
+
+        h1 {
+            color: #333;
+            text-align: center; /* Center-align titles */
+        }
+    </style>
+</head>
+<body>
+    <h1>Sveiki atvykę į užrašų programėlę</h1>
+    <div style="text-align: center;">
+        <a href="{{ url_for('manage_users') }}" style="margin-right: 10px;">Vartotojai</a>
+        <a href="{{ url_for('manage_notes') }}" style="margin-left: 10px;">Užrašai</a>
+    </div>
+</body>
+</html>

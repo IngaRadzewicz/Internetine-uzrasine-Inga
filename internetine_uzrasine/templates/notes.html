@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <title>Užrašai</title>
+    <style>
+        body {
+            font-family: Courier, monospace;
+            background: #e6f7ff;
+            color: #333;
+            padding: 20px;
+        }
+
+        a, button {
+            color: #800080; /* Violet */
+            background-color: #FF69B4; /* Pink background for buttons */
+            padding: 10px 20px;
+            border: none;
+            text-decoration: none; /* Underline links */
+            font-size: smaller; /* Smaller font size for links */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            padding: 10px;
+            border-left: 5px solid #FF69B4;
+        }
+
+        select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+
+        form {
+            background: #fff;
+            padding: 15px;
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center; /* Center-align titles */
+        }
+    </style>
+</head>
+<body>
+    <h1>Užrašai</h1>
+    <ul>
+        {% for note in notes %}
+        <li><strong>{{ note.user }}:</strong> {{ note.content }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Pridėti naują užrašą</h2>
+    <form action="{{ url_for('manage_notes') }}" method="post">
+        <select name="user" required>
+            <option value="">Pasirinkite vartotoją</option>
+            {% for user in users %}
+            <option value="{{ user }}">{{ user }}</option>
+            {% endfor %}
+        </select>
+        <textarea name="content" placeholder="Įveskite savo užrašą čia" required></textarea>
+        <button type="submit">Pridėti užrašą</button>
+    </form>
+    <div style="text-align: center;">
+        <a href="{{ url_for('index') }}">Grįžti į pradžią</a>
+    </div>
+</body>
+</html>
+
